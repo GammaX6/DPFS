@@ -3,7 +3,7 @@
 
 DPFS (Delta Pseudo-hierarchical File System) is a fast and comprehensive file system. It can be accessed via the Delta Kernel syscall interface. It stores flat file and directory paths across 4 lists and the entire filesystem is also exportable. 
 
-As of the current version, modce has not been utilized yet (and might never be).
+As of the current version, mode has not been utilized yet (and might never be).
 
 ## [1.3.2b] - 2015-12-03
 
