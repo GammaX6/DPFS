@@ -5,7 +5,7 @@ DPFS (Delta Pseudo-hierarchical File System) is a fast and comprehensive file sy
 
 As of the current version, mode has not been utilized yet (and might never be).
 
-## [1.3.2b] - 2015-11-01
+## [1.3.2b] - 2026-11-01
 
 ### Changed
 - Detection of parent directories.
