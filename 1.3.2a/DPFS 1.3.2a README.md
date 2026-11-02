@@ -1,13 +1,29 @@
 # DPFS
 **Version 1.3.2b**
+
 DPFS (Delta Pseudo-hierarchical File System) is a fast and comprehensive file system. It can be accessed via the Delta Kernel syscall interface. It stores flat file and directory paths across 4 lists and the entire filesystem is also exportable. 
 
 As of the current version, modce has not been utilized yet (and might never be).
+
+## [1.3.2b] - 2015-12-03
+
+### Changed
+- Directory export formats.
+
+### Current Version Compatibility
+The compatibility of this release with other DPFS releases.
+
+| Title | Versions |
+| :--- | :--- |
+| Gerneral Compatibility | 1.3.2b |
+| Filesystem Compatibilty | 1.3.1 - 1.3.2b |
+| Savecode Compatibility | 1.3.2b |
 
 ## Versioning
 Different versions of DPFS might not be compatible with each other. To check the current version, access the global variable `fs.version`. A list of compatible DPFS versions to your version can be found in the global list `fs.compatible_versions`. These variables should not be modified unless you really need to. DPFS also automatically detects incompatible versions in a encoded filesystem savecode and returns an error.
 
 ## Usage
+You should use DPFS as an independent sprite and use it via the syscall interface to ensure upgradability
 DPFS can be accessed via 2 main methods: Intra-sprite and inter-sprite. DPFS can be accessed through the `external_use_funs_template.send_syscall` function in the sprite for intra-sprite usage. Inter-sprite usage is the default, and is achieved by using the Delta Kernel syscall interface. The template function to access DPFS for external sprites is the same for above, except you should drag it to another sprite and rename `external_use_funs_template.send_syscall` your sprite name.
 
 ### Calling DPFS (via both methods)
@@ -33,15 +49,26 @@ In the table below, arguments in square brackets (`[]`) are optional.
 | IMPORT | `encoded_dir`, `[replace_dir]`, `[replace_data]`, `[replace_mode]` | Imports the encoded directory in `encoded_dir`. If `[replace_dir]` is true, the entire target directory with the name defined in `encoded_dir`, if it exists, will be wiped and replaced entirely with the contents of the savecode. `[replace_data]` and `[replace_mode]` when true, replaces different data and mode of files with the ones in the encoded directory respectively. |
 
 # Modification
-Only read this section if you wish to modify DPFS to suit your own use.
+Only read this section if you wish to modify DPFS.
 
 ## Versions
 There are 2 main types of releases - stable and betas. Stable releases are releases that are tested and no major bugs are found. Beta releases are experimental and may contain bugs.
 DPFS does not contain a version management system. You are highly encouraged to choose the latest stable relase of DPFS for your projects, as to implement a new version you will have to perform your modifications again. Refer to the [Releases](#releases) section for a list of DPFS releases.
 
 ### Releases
-| Release Name | Type | Date | Notes | Compatibility
-| :--- | :--- | :--- | :--- | :--- |
-| 1.3.2b | Stable | 11/1/2026 | Fixed prefix detection bugs. | 1.3.2b+ |
-| 1.3.2a | Beta | 11/1/2026 | Introduced new directory export format. | 1.3.1 - 1.3.2a |
-| 1.3.1 | Stable | 10/25/2026 | Idk tbh | 1.3.1 - 1.3.1 |
+The "General Compatibility" section indicates the versions that version of DPFS is compatible with. This includes interchangeable filesystem storage and savecodes. For a more specific compatibility information, check each of the release's READMEs on GitHub (if available).
+The source of the releases are the locations where the modification-oriented versions of each release are posted. "GitHub Repository" means that the version's code is available in the official GitHub repository. "Not Readily Modifiable" means that the version has been altered in some way and released in a project, but the base code has not been posted. "Not Public" means that no code of this version whether modified or not is publically available.
+
+There are tools to upgrade older DPFS filesystems to new ones on, altohugh it may not be available for all releases.
+| Release Name | Type | Date | Notes | General Compatibility | Source |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 1.3.2a | Beta | 11/1/2026 | Introduced new directory export format. | 1.3.2a | GitHub Repository |
+| 1.3.1 | Stable | 10/25/2026 | Added importing and exporting of directories and viewing the path sizes of targets. | 1.3.1 | Not Public |
+| 1.3.0 | Stable | 10/21/2026 | Fixed various bugs. | 1.1.1 - 1.3.0 | Not Public |
+| 1.2.0 | Stable | 10/20/2026 | Fixed sub-path bugs. | 1.1.1 - 1.3.0 | Not Public |
+| 1.1.1 | Beta | 10/19/2026 | Reworked syscall framework | 1.1.1 - 1.3.0 | Not Public |
+| 1.1.0 | Stable | 10/9/2026 | Added FS.STAT | 1.0.0 - 1.1.0 | Not Public |
+| 1.0.0 | Stable | 10/9/2026 | First release | 1.0.0 - 1.1.0 | Not Public |
+
+## Modification of Syscall Interface
+The Delta Kernel Syscall Interface can be modified or removed to suit your usage. You should remove it if you plan on accessing the filesystem in the same sprite where the code is, although this is adviced against.
