@@ -1,11 +1,11 @@
 # DPFS
-**Version 1.3.2b**
+**Version 1.3.2a**
 
 DPFS (Delta Pseudo-hierarchical File System) is a fast and comprehensive file system. It can be accessed via the Delta Kernel syscall interface. It stores flat file and directory paths across 4 lists and the entire filesystem is also exportable. 
 
 As of the current version, modce has not been utilized yet (and might never be).
 
-## [1.3.2b] - 2015-12-03
+## [1.3.2a] - 2015-10-25
 
 ### Changed
 - Directory export formats.
@@ -15,9 +15,9 @@ The compatibility of this release with other DPFS releases.
 
 | Title | Versions |
 | :--- | :--- |
-| Gerneral Compatibility | 1.3.2b |
-| Filesystem Compatibilty | 1.3.1 - 1.3.2b |
-| Savecode Compatibility | 1.3.2b |
+| Gerneral Compatibility | 1.3.2a |
+| Filesystem Compatibilty | 1.3.1 - 1.3.2a |
+| Savecode Compatibility | 1.3.2a |
 
 ## Versioning
 Different versions of DPFS might not be compatible with each other. To check the current version, access the global variable `fs.version`. A list of compatible DPFS versions to your version can be found in the global list `fs.compatible_versions`. These variables should not be modified unless you really need to. DPFS also automatically detects incompatible versions in a encoded filesystem savecode and returns an error.
