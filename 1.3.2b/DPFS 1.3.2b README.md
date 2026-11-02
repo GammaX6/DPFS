@@ -3,7 +3,7 @@
 
 DPFS (Delta Pseudo-hierarchical File System) is a fast and comprehensive file system. It can be accessed via the Delta Kernel syscall interface. It stores flat file and directory paths across 4 lists and the entire filesystem is also exportable. 
 
-As of the current version, modce has not been utilized yet (and might never be).
+As of the current version, mode has not been utilized yet (and might never be).
 
 ## [1.3.2b] - 2015-12-03
 
@@ -63,7 +63,7 @@ There are tools to upgrade older DPFS filesystems to new ones on, altohugh it ma
 | Release Name | Type | Date | Notes | General Compatibility | Source |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1.3.2b | Stable | 11/1/2026 | Fixed prefix detection. | 1.3.2b | GitHub Repository |
-| 1.3.2a | Beta | 11/1/2026 | Introduced new directory export format. | 1.3.2a | GitHub Repository |
+| 1.3.2a | Beta | 11/1/2026 | Introduced new directory export format. | 1.3.1 - 1.3.2a | GitHub Repository |
 | 1.3.1 | Stable | 10/25/2026 | Added importing and exporting of directories and viewing the path sizes of targets. | 1.3.1 | Not Public |
 | 1.3.0 | Stable | 10/21/2026 | Fixed various bugs. | 1.1.1 - 1.3.0 | Not Public |
 | 1.2.0 | Stable | 10/20/2026 | Fixed sub-path bugs. | 1.1.1 - 1.3.0 | Not Public |
