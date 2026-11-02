@@ -5,7 +5,7 @@ DPFS (Delta Pseudo-hierarchical File System) is a fast and comprehensive file sy
 
 As of the current version, modce has not been utilized yet (and might never be).
 
-## [1.3.2a] - 2015-10-25
+## [1.3.2a] - 2026-10-25
 
 ### Changed
 - Directory export formats.
