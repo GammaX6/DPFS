@@ -1,23 +1,46 @@
 # DPFS
-**Version 1.3.2b**
+**Version 1.4.1**
 
 DPFS (Delta Pseudo-hierarchical File System) is a fast and comprehensive file system. It can be accessed via the Delta Kernel syscall interface. It stores flat file and directory paths across 4 lists and the entire filesystem is also exportable. 
 
 As of the current version, mode has not been utilized yet (and might never be).
+
+# Changelog
+
+## [1.4.1] - 2026-11-25
+
+### Added
+- CLI (sh)
+
+## [1.4.0] - 2026-11-21
+
+### Added
+- `[mkparents]` option for `CREATE`.
+- Renaming of child directories and files in `RENAME`.
+- `symlink` function base
+
+### Changed
+- Syscall format and template.
+- Deletion of nested fields and directories for `RMDIR`.
+
+### Fixed
+- Miscellaneous bugs.
 
 ## [1.3.2b] - 2026-11-01
 
 ### Changed
 - Detection of parent directories.
 
+
+
 ### Current Version Compatibility
 The compatibility of this release with other DPFS releases.
 
 | Title | Versions |
 | :--- | :--- |
-| Gerneral Compatibility | 1.3.2b |
-| Filesystem Compatibilty | 1.3.1 - 1.3.2b |
-| Savecode Compatibility | 1.3.2b |
+| Gerneral Compatibility | 1.3.2b - 1.4.1|
+| Filesystem Compatibilty | 1.4.0 - 1.3.2b |
+| Savecode Compatibility | 1.3.2b - 1.4.1 |
 
 ## Versioning
 Different versions of DPFS might not be compatible with each other. To check the current version, access the global variable `fs.version`. A list of compatible DPFS versions to your version can be found in the global list `fs.compatible_versions`. These variables should not be modified unless you really need to. DPFS also automatically detects incompatible versions in a encoded filesystem savecode and returns an error.
@@ -57,19 +80,21 @@ DPFS does not contain a version management system. You are highly encouraged to 
 
 ### Releases
 The "General Compatibility" section indicates the versions that version of DPFS is compatible with. This includes interchangeable filesystem storage and savecodes. For a more specific compatibility information, check each of the release's READMEs on GitHub (if available).
-The source of the releases are the locations where the modification-oriented versions of each release are posted. "GitHub Repository" means that the version's code is available in the official GitHub repository. "Not Readily Modifiable" means that the version has been altered in some way and released in a project, but the base code has not been posted. "Not Public" means that no code of this version whether modified or not is publically available.
+The source of the releases are the locations where the modification-oriented versions of each release are posted. "GitHub Repository" means that the version's code is available in the official GitHub repository. "Not Readily Modifiable" means that the version has been altered in some way and released in a project, but the base code has not been posted. "Private" means that no code of this version whether modified or not is publically available.
 
 There are tools to upgrade older DPFS filesystems to new ones on, altohugh it may not be available for all releases.
 | Release Name | Type | Date | Notes | General Compatibility | Source |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1.4.1 | Stable | 11/25/2026 | Added CLI interface. | 1.4.0 - 1.4.1 | GitHub Repository |
+| 1.4.0 | Stable | 11/21/2026 | Fixed various bugs and added features. | 1.4.0 - 1.4.1 | Private |
 | 1.3.2b | Stable | 11/1/2026 | Fixed prefix detection. | 1.3.2b | GitHub Repository |
 | 1.3.2a | Beta | 11/1/2026 | Introduced new directory export format. | 1.3.1 - 1.3.2a | GitHub Repository |
-| 1.3.1 | Stable | 10/25/2026 | Added importing and exporting of directories and viewing the path sizes of targets. | 1.3.1 | Not Public |
-| 1.3.0 | Stable | 10/21/2026 | Fixed various bugs. | 1.1.1 - 1.3.0 | Not Public |
-| 1.2.0 | Stable | 10/20/2026 | Fixed sub-path bugs. | 1.1.1 - 1.3.0 | Not Public |
-| 1.1.1 | Beta | 10/19/2026 | Reworked syscall framework | 1.1.1 - 1.3.0 | Not Public |
-| 1.1.0 | Stable | 10/9/2026 | Added FS.STAT | 1.0.0 - 1.1.0 | Not Public |
-| 1.0.0 | Stable | 10/9/2026 | First release | 1.0.0 - 1.1.0 | Not Public |
+| 1.3.1 | Stable | 10/25/2026 | Added importing and exporting of directories and viewing the path sizes of targets. | 1.3.1 | Private |
+| 1.3.0 | Stable | 10/21/2026 | Fixed various bugs. | 1.1.1 - 1.3.0 | Private |
+| 1.2.0 | Stable | 10/20/2026 | Fixed sub-path bugs. | 1.1.1 - 1.3.0 | Private |
+| 1.1.1 | Beta | 10/19/2026 | Reworked syscall framework | 1.1.1 - 1.3.0 | Private |
+| 1.1.0 | Stable | 10/9/2026 | Added STAT | 1.0.0 - 1.1.0 | Private |
+| 1.0.0 | Stable | 10/9/2026 | First release | 1.0.0 - 1.1.0 | Private |
 
 ## Modification of Syscall Interface
 The Delta Kernel Syscall Interface can be modified or removed to suit your usage. You should remove it if you plan on accessing the filesystem in the same sprite where the code is, although this is adviced against.
